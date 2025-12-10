@@ -69,4 +69,18 @@ public class TennisGameServiceTest {
         assertTrue(out.toString().contains(expected));
     }
 
+
+    @Test
+    void shouldDeuce_WhenAAndBScoresAreEquals() {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+        String scoringSequence = "AABABB";
+
+        tennisGame.startGame(scoringSequence);
+
+        String expected = "Player A : 40 / Player B : 40";
+
+        assertTrue(out.toString().contains(expected));
+    }
+
 }
